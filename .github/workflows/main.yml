@@ -5,25 +5,25 @@ jobs:
     name: build and publish
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: actions/checkout@main
       - name: npm install
-        uses: actions/npm@master
+        uses: actions/npm@main
         with:
           args: install
       - name: npm test
-        uses: actions/npm@master
+        uses: actions/npm@main
         with:
           args: run test
       - name: npm lint
-        uses: actions/npm@master
+        uses: actions/npm@main
         with:
           args: run lint
       - name: docker build
-        uses: actions/docker/cli@master
+        uses: actions/docker/cli@main
         with:
           args: build -t nodsaibot/renx-api .
       - name: docker login
-        uses: actions/docker/login@master
+        uses: actions/docker/login@main
         env:
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
