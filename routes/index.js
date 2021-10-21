@@ -1,4 +1,4 @@
-const renx_data = require('../storage/raw.json')
+const renx_data = require('..\storage\raw.json')
 const routes = require('express').Router()
 const fs = require('fs')
 
@@ -110,8 +110,8 @@ function HandleMutatorList(req) {
 
 // Helper functions
 function filterByRequest(req) {
-  var renx = JSON.parse(fs.readFileSync('./storage/raw.json'))
-  var version = JSON.parse(fs.readFileSync('./storage/version.json'))
+  var renx = JSON.parse(fs.readFileSync('.\storage\raw.json'))
+  var version = JSON.parse(fs.readFileSync('.\storage\version.json'))
 
   for (const property in req.query) {
     if (property == "Game Version" && req.query[property] == "latest")
