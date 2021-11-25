@@ -1,0 +1,32 @@
+[
+    {
+        "Name": "[CT] Marathon - NA",
+        "UUID": "1c2b0156-aab4-5d45-8168-6fabd3234ff3",
+        "mutatorList": [
+            {
+                "Name": "Rx_WebMutator"
+            }
+        ]
+    },
+    {
+        "Name": "[CT] Marathon - EU",
+        "UUID": "14a26d18-db55-5b87-81cc-c94a56a6d23c",
+        "mutatorList": [
+            {
+                "Name": "Rx_WebMutator"
+            }
+        ]
+    },
+    {
+        "Name": "FairPlayInc.uk",
+        "UUID": "228565e8-5d04-51aa-9867-0ebaab53b1a2",
+        "mutatorList": [
+            {
+                "Name": "Rx_WebMutator"
+            },
+            {
+                "Name": "FPI_Mutator_RXSS"
+            }
+        ]
+    }
+]

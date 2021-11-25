@@ -42,8 +42,7 @@ function HandlePlayerList(req) {
     if (renx[server]["PlayerList"] != undefined) {
       let serverL = new Object()
       serverL.Name = renx[server]["Name"]
-      serverL.IP = renx[server]["IP"]
-      serverL.Port = renx[server]["Port"]
+      serverL.UUID = renx[server]["UUID"]
       serverL.playerList = []
 
       for (const player in renx[server]["PlayerList"]) {
@@ -95,8 +94,7 @@ function HandleMutatorList(req) {
     if (renx[server]["Mutators"] != undefined) {
       let serverL = new Object()
       serverL.Name = renx[server]["Name"]
-      serverL.IP = renx[server]["IP"]
-      serverL.Port = renx[server]["Port"]
+      serverL.UUID = renx[server]["UUID"]
       serverL.mutatorList = []
 
       for (const mut in renx[server]["Mutators"]) {
