@@ -59,7 +59,7 @@ All endpoints accept parameters that will filter out servers if they don't match
 * Server Name, Server UUID and Mutator Array
 * [Example output](examples/mutator.json)
 
-### GET /playerlist
+### GET /playercount
 ### Requests
 
 | parameter | type | default |
@@ -68,7 +68,7 @@ All endpoints accept parameters that will filter out servers if they don't match
 
 ### Return values
 * Player Count
-* [Example output](examples/playerlist.json)
+* [Example output](examples/playercount.json)
 
 ### GET /server
 ### Requests
