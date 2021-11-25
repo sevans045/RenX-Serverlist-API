@@ -1,6 +1,13 @@
 const renx_data = require("../storage/raw.json")
+const { uniqueUUID } = require(("../../config/config.json"))
 const routes = require("express").Router()
 const fs = require("fs")
+const getUuid = require("uuid-by-string")
+
+if (uniqueUUID.match("[0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12}") == null) {
+  console.error("Something is wrong with the UUID:( https://www.regextester.com/99148")
+  process.exit(0)
+}
 
 routes.get("/", (req, res) => {
   if (renx_data)
@@ -16,9 +23,9 @@ routes.get("/server", (req, res) => {
 })
 
 function HandleServerInfo(req) {
-  let response = filterByRequest(req);
+  let renx = filterByRequest(req)
 
-  return response;
+  return renx;
 }
 
 // Information about players
@@ -109,6 +116,8 @@ function HandleMutatorList(req) {
 }
 
 // Helper functions
+
+// Every request must pass through here
 function filterByRequest(req) {
   var renx = JSON.parse(fs.readFileSync("./storage/raw.json"))
   var version = JSON.parse(fs.readFileSync("./storage/version.json"))
@@ -118,6 +127,12 @@ function filterByRequest(req) {
       renx = renx.filter(server => server["Game Version"] == version["game"]["version_name"])
     else
       renx = renx.filter(server => server[property] == req.query[property])
+  }
+
+  for (const server in renx) {
+    renx[server].UUID = getUuid(renx[server].Port + renx[server].IP + uniqueUUID, 5);
+    delete renx[server].IP;
+    delete renx[server].Port;
   }
 
   return renx;
