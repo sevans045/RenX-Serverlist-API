@@ -121,7 +121,6 @@ function filterByRequest(req) {
   var version = JSON.parse(fs.readFileSync("./storage/version.json"))
 
   for (const property in req.query) {
-    console.log(property)
     if (property == "Game Version" && req.query[property] == "latest")
       renx = renx.filter(server => server["Game Version"] == version["game"]["version_name"])
     else {
