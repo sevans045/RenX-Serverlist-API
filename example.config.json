@@ -3,8 +3,8 @@
   "requestUserAgent": "Your User Agent",
   "uniqueUUID": "https://www.regextester.com/99148",
   "isBehindProxy": false,
-  "rateLimitWindowDurationMinutes": 15,
-  "rateLimitWindowMax": 100,
+  "rateLimitWindowDurationMinutes": 1,
+  "rateLimitWindowMax": 2,
   "serverlistQueryIntervalSeconds": 15,
   "listenPort": 80
 }
