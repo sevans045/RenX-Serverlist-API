@@ -72,10 +72,15 @@ function HandlePlayerCount(req) {
   let response = new Object()
 
   response.playerCount = 0
+  response.activeServers = 0
 
-  for (const server in renx)
+  for (const server in renx) {
+    if (renx[server]["PlayerList"])
+      response.activeServers++
+
     for (const player in renx[server]["PlayerList"])
       response.playerCount++
+  }
 
   return response;
 }
