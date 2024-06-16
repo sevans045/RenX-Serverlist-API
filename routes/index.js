@@ -1,6 +1,7 @@
 const renx_data = require("../storage/raw.json");
 const { uniqueUUID } = require("../../config/config.json");
 const routes = require("express").Router();
+var cors = require('cors')
 const fs = require("fs");
 const getUuid = require("uuid-by-string");
 const { response } = require("express");
@@ -22,7 +23,7 @@ routes.get("/", (req, res) => {
 });
 
 // Information about servers
-routes.get("/server", (req, res) => {
+routes.get("/server", cors(), (req, res) => {
   let responseJSON = HandleServerInfo(req);
   res.status(200).json(responseJSON);
 });
@@ -111,7 +112,7 @@ function HandlePlayerCount(req) {
 }
 
 // Information about mutators
-routes.get("/mutator", (req, res) => {
+routes.get("/mutator", cors(), (req, res) => {
   let responseJSON = HandleMutatorList(req);
   res.status(200).json(responseJSON);
 });
