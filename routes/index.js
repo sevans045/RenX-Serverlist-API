@@ -1,5 +1,5 @@
 const renx_data = require("../storage/raw.json");
-const { uniqueUUID } = require("../config/config.json");
+const { uniqueUUID } = require("../../config/config.json");
 const routes = require("express").Router();
 var cors = require('cors')
 const fs = require("fs");
