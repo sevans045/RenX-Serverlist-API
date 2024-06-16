@@ -11,6 +11,7 @@ const {
 
 const fs = require("fs");
 const app = require("express")();
+const cors = require("cors");
 const rateLimit = require("express-rate-limit");
 const limiter = rateLimit({
   windowMs: rateLimitWindowDurationMinutes * 60 * 1000,
@@ -34,6 +35,7 @@ const routes = require("./routes/");
 
 app.use("/api", routes);
 app.use(limiter);
+app.use(cors);
 
 if (isBehindProxy) {
   app.set("trust proxy", 1);
